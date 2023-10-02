@@ -1,0 +1,83 @@
+@import '../../scss/vars.scss';
+
+.fobos-header {
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1250px;
+  border-radius: $midRadius;
+  margin: 0 auto;
+  min-height: 75px;
+  background: $white;
+
+  &__logo-holder {
+    height: 100%;
+    cursor: pointer;
+  }
+
+  &__logo {
+    object-fit: cover;
+    max-width: 60%;
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__btn {
+    text-transform: none !important;
+    font-family: 'Source Serif Pro', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+  }
+
+  &__switchers {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .fobos-header__switchers {
+    position: absolute;
+    top: 1.5em;
+    right: 5em;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .fobos-header__nav {
+    display: none;
+  }
+}
+
+//Mobile header
+@media (max-width: 768px) {
+  .fobos-header {
+    z-index: 4;
+    background: $white;
+
+    &__nav {
+      display: none;
+    }
+
+    &__logo {
+      max-width: 50%;
+    }
+  }
+}
+
+//Dark mode
+.wrapper {
+  &.dark {
+    .fobos-header {
+      background: $lightBlack;
+
+      & a,
+      svg {
+        color: $darkText;
+      }
+    }
+  }
+}

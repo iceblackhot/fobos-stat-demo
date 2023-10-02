@@ -1,0 +1,170 @@
+@import '../../../scss/vars.scss';
+
+.nav-btn {
+  &__wrapper {
+    text-align: end;
+    
+  }
+
+  &__wrapper.active > svg {
+     transform: scale(-1, 1);
+  }
+
+  &__wrapper > svg {
+    color: $fobos !important;
+    cursor: pointer;
+    transition: .3s;
+   }
+
+  .user {
+    display: none;
+
+    &.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 30px;
+      right: 1px;
+      height: 133px;
+      // width: 67px;
+      width: 97%;
+      background: $white;
+      box-shadow: 0 0 5pt 0.5pt $grey;
+      border-radius: 1em;
+      padding: 3px;
+
+      & #status,
+      #balance {
+        font-weight: 400;
+        font-size: 15px;
+        color: $grey;
+        padding-bottom: 3px;
+      }
+
+      & #balanceColor {
+        color: $green;
+        font-weight: 700;
+        font-size: 15px;
+        padding-bottom: 3px;
+      }
+
+      & > #usd {
+        color: $fobos;
+        cursor: pointer;
+        transition: 0.4s;
+
+        &:hover {
+          color: $green;
+        }
+      }
+
+      #green-circle {
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        margin-bottom: 3px;
+      }
+    }
+  }
+}
+
+.user-info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 130px;
+  padding: 6px 20px 0 20px;
+  margin-bottom: 6px;
+  border-radius: 1em;
+  background: $white;
+  box-shadow: 0 0 5pt 0.5pt $grey;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 1;
+  transition-delay: .1s;
+  
+
+  &.active {
+    width: 0;
+    opacity: 0;
+    transition-delay: 0s;
+  }
+
+  &__hello {
+    font-weight: 400;
+    font-size: 15px;
+    color: $grey;
+    padding-bottom: 5px;
+  }
+
+  &__name {
+    font-weight: 400;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 5px;
+  }
+
+  &__balance {
+    padding-bottom: 5px;
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 15px;
+    color: $grey;
+    padding-bottom: 5px;
+  }
+
+  &__money {
+    font-weight: 700;
+    font-size: 15px;
+    color: $green;
+    padding-bottom: 5px;
+  }
+
+  &__ip {
+    font-weight: 700;
+    font-size: 15px;
+    color: $green;
+    padding-bottom: 5px;
+  }
+
+  &__btn {
+    font-weight: 700;
+    font-size: 15px;
+    color: $fobos;
+    padding-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .user-info {
+    display: none;
+  }
+
+  .nav-btn {
+    display: none;
+  }
+}
+
+//Dark mode
+.wrapper {
+  &.dark {
+    .user-info {
+     background: $darkBlack;
+
+     &__name {
+       color: $darkText;
+     }
+    }
+
+    .user{
+      &.active{
+        background: $darkBlack;
+      }
+    }
+  }
+}

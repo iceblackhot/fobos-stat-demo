@@ -1,0 +1,52 @@
+@import '../../../scss/vars.scss';
+
+.toggle__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.3s;
+  height: 49px;
+
+  & svg {
+    width: 24px;
+    height: 24px;
+    color: #f9dbb2;
+  }
+
+  .toggle {
+    display: block;
+    position: relative;
+    width: 32px;
+    height: 16px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: inset 0 0 5pt 0.5pt $grey;
+    transition: 0.5s;
+    cursor: pointer;
+
+    .indicator {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      background: #919cba;
+      border-radius: 50%;
+      transform: scale(0.7);
+      transition: 0.3s;
+    }
+
+    &.active {
+      background: $fobos;
+      box-shadow: inset 0 0 5pt 0.5pt rgb(61, 61, 61);
+
+      .indicator {
+        left: 16px;
+        background: #222;
+      }
+    }
+  }
+}
+
+

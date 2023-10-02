@@ -1,0 +1,77 @@
+@import '../../scss/vars.scss';
+
+.fobos-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1250px;
+  border-radius: $midRadius;
+  min-height: 75px;
+  background: $white;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  &__copyright {
+    display: flex;
+    align-items: center;
+  }
+
+  &__copyright > span {
+    color: $grey;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 15px;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    & > span {
+      color: $fobos;
+      font-weight: 400;
+      font-size: 15px;
+      padding: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .fobos-footer {
+    &__container {
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    &__info > span {
+      padding-top: 0;
+      text-align: center;
+    }
+  }
+}
+
+//Dark mode
+.wrapper {
+  &.dark {
+    .fobos-footer {
+      background: $lightBlack;
+
+      & span {
+        color: $darkText;
+        transition: 0.3s;
+      }
+
+      &__info span:hover {
+        color: $fobos;
+      }
+    }
+  }
+}

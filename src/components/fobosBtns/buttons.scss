@@ -1,0 +1,84 @@
+@import '../../scss/vars.scss';
+
+.fobos-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  background: $white;
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 20px;
+  row-gap: 15px;
+  column-gap: 15px;
+
+  .fobos-buttons__btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 88px;
+    border-radius: 8px;
+    padding: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    color: $white;
+    transition: all ease-in-out 0.4s;
+
+    &:first-child,
+    &:nth-child(2),
+    &:last-child {
+      box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.3);
+
+      &:hover {
+        transform: translateY(2px);
+        box-shadow: 4px 4px 26px 0px rgba(0, 0, 0, 0.9);
+      }
+    }
+
+    &:first-child {
+      background: linear-gradient(95.52deg, #48c95f -4.55%, #6bff86 106.47%);
+    }
+
+    &:nth-child(2) {
+      background: linear-gradient(95.52deg, #ffa24d -4.55%, #ffc58f 106.47%);
+    }
+
+    &:last-child {
+      background: linear-gradient(95.52deg, #0080ff -4.55%, #56abff 106.47%);
+    }
+
+    &_ico {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .fobos-buttons {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+
+    .fobos-buttons__btn {
+      font-size: 15px;
+      width: 100%;
+    }
+  }
+}
+
+//Dark mode
+.wrapper {
+  &.dark {
+    .fobos-buttons {
+      background: $lightBlack;
+
+      &__btn {
+        color: $darkText;
+        background: $darkBlack;
+        box-shadow: 0 0 5pt 0.5pt $darkText;
+
+        &:hover {
+          box-shadow: 0 0 8pt 0.8pt $darkText;
+        }
+      }
+    }
+  }
+}

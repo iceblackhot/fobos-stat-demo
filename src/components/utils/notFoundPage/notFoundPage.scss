@@ -1,0 +1,43 @@
+@import '../../../scss/vars.scss';
+
+.not-found {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: $white;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $blueBtn;
+    padding-bottom: 40px;
+  }
+
+  &__img-wrapper {
+    padding-bottom: 40px;
+  }
+
+  &__btn {
+    padding: 10px 30px;
+    border-radius: 4px;
+    border: none;
+    background: $blueBtn;
+    color: $white;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.4s;
+
+    &:hover {
+      //   opacity: 0.9;
+      background: #4fa3f7;
+    }
+  }
+}

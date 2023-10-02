@@ -1,0 +1,81 @@
+@import '../../../scss/vars.scss';
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  font-size: 15px;
+  color: $grey;
+  user-select: none;
+  padding-right: 10px;
+  height: 49px;
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 32px;
+    height: 16px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: inset 0 0 5pt 0.5pt #919cb8;
+    cursor: pointer;
+  }
+
+  &__content {
+    position: absolute;
+    top: 3.6em;
+    width: 32px;
+    text-align: center;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 0 5pt 0.5pt #919cb8;
+  }
+
+  &__item {
+    position: relative;
+    border-radius: 4px;
+    padding: 3px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background: $grey;
+      color: $white;
+      border-radius: 4px;
+    }
+  }
+
+  &__img-wrapper {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+//Dark Mode
+.wrapper {
+  &.dark {
+    .dropdown {
+      &__btn {
+        color: $darkBlack;
+        background: $fobos;
+        box-shadow: inset 0 0 5pt 0.5pt #3d3d3d;
+      }
+
+      &__content {
+        background: $darkBlack;
+      }
+
+      &__item {
+        color: $darkText;
+
+        &:hover {
+          color: $darkBlack;
+        }
+      }
+    }
+  }
+}

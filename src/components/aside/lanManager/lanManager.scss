@@ -1,0 +1,345 @@
+@import '../../../scss/vars.scss';
+
+.lanmanager {
+  width: 100%;
+  max-width: 960px;
+  height: fit-content;
+  background: $white;
+  padding: 30px 30px 0;
+  border-radius: $radius;
+  margin-bottom: 20px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 0 30px;
+  }
+
+  &__drop-btn {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid $fobos;
+    margin-right: 10px;
+    transition: 0.4s;
+
+    & > svg {
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      color: $fobos;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    &.active > svg {
+      // transform: rotate(180deg);
+      transform: scale(1, -1);
+    }
+  }
+
+  &__detail-btn {
+    color: $fobos !important;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 15px;
+
+    & > svg {
+      width: 15px !important;
+    }
+  }
+
+  &__container {
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 290px;
+    background: linear-gradient(95.52deg, #0080ff -4.55%, #56abff 106.47%);
+    border-radius: 8px;
+    padding: 22px 34px 15px 40px;
+    margin-bottom: 30px;
+  }
+
+  .arrow {
+    z-index: 2;
+    position: absolute;
+  }
+
+  &__arrow-one {
+    top: 0;
+    left: 27%;
+  }
+
+  &__arrow-two {
+    top: 0;
+    left: 47%;
+  }
+
+  &__arrow-three {
+    top: 0;
+    right: 0;
+  }
+
+  &__img-holder {
+    z-index: 3;
+    position: absolute;
+    top: 23px;
+    right: 40px;
+    width: 435px;
+    height: 270px;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__info {
+    width: 419px;
+
+    &_title {
+      color: $white;
+      padding-bottom: 10px;
+    }
+
+    &_text {
+      font-weight: 400;
+      font-size: 15px;
+      color: $white;
+      padding-bottom: 30px;
+    }
+
+    &_btn {
+      position: relative;
+      padding: 15px 45px 15px 15px;
+      background: $white;
+      border-radius: 4px;
+      color: $fobos;
+      border: 1px solid $white;
+      transition: 0.4s;
+
+      &:hover {
+        background: $fobos;
+        color: $white;
+        border: 1px solid $white;
+      }
+
+      & > svg {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px;
+      }
+    }
+  }
+
+  &__btns.hide {
+    display: none;
+    visibility: hidden;
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+  }
+
+  &__cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+    grid-template-rows: repeat(auto-fill, 126px);
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 30px;
+    height: 0;
+    transform: scale(0);
+    visibility: hidden;
+    opacity: 0;
+    transition: all ease-in-out 0.3s;
+  }
+
+  &__cards-wrapper.active {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+    height: 100%;
+  }
+
+  &__card {
+    display: flex;
+    align-items: center;
+    border-radius: $midRadius;
+    box-shadow: 0 0 5pt 0.5pt $grey;
+    min-height: 126px;
+    width: 100%;
+    padding: 10px;
+  }
+
+  &__icon-holder {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: $midRadius;
+  }
+
+  &__ico {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__text {
+    width: 100%;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .lanmanager {
+    &__arrow-three {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1333px) {
+  .lanmanager {
+    // &__arrow-one {
+    //   top: 0;
+    //   left: 40%;
+    // }
+
+    &__arrow-two {
+      // top: 0;
+      left: 60%;
+    }
+
+    &__arrow-three {
+      // display: none;
+      top: 0;
+      left: 66%;
+    }
+
+    &__img-holder {
+      display: none;
+    }
+
+    &__img {
+      display: none;
+    }
+
+    &__container {
+      padding: 22px 40px;
+    }
+
+    &__info {
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .lanmanager {
+    position: relative;
+
+    &__title > h2 {
+      font-size: 18px;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &_title > h2 {
+        font-size: 18px;
+      }
+
+      &_btn {
+        font-size: 15px;
+        max-width: 150px;
+        margin: 0 auto;
+      }
+    }
+
+    &__drop-btn {
+      position: absolute;
+      top: 10px;
+      right: 0;
+    }
+
+    &__header {
+      align-items: center;
+      padding: 15px 15px 30px;
+    }
+
+    &__container {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .arrow {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .lanmanager {
+    &__header {
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+
+    &__title {
+      padding-bottom: 15px;
+    }
+  }
+}
+
+//Dark mode
+.wrapper {
+  &.dark {
+    .lanmanager {
+      background: $lightBlack;
+
+      & h2,
+      p {
+        color: $darkText;
+      }
+
+      &__container {
+        background: $darkBlack;
+
+        & a {
+          background: $darkBlack;
+          border: 2px solid $darkText;
+          color: $darkText;
+
+          &:hover {
+            color: $fobos;
+            border: 2px solid $fobos;
+          }
+        }
+      }
+
+      &__img {
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+      }
+    }
+  }
+}

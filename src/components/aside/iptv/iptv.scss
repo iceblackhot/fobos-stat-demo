@@ -1,0 +1,238 @@
+@import '../../../scss/vars.scss';
+
+.fobos-iptv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 960px;
+  height: fit-content;
+  padding: 30px;
+  border-radius: $radius;
+  background: $white;
+
+  &__title {
+    padding-bottom: 30px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(150px, 270px) minmax(150px, 1fr);
+    grid-template-rows: repeat(3, auto);
+    height: 252px;
+    width: 100%;
+    border-radius: $midRadius;
+    background: $white;
+    border: 1px solid $lightGrey;
+    overflow: hidden;
+    transition: all ease-in-out 0.3s;
+    margin-bottom: 20px;
+
+    &_cell {
+      border: 1px solid $lightGrey;
+
+      &:nth-child(1) {
+        border-top-left-radius: $midRadius;
+      }
+
+      &:nth-child(2) {
+        font-weight: 700 !important;
+        color: $orange;
+        border-top-right-radius: $midRadius;
+      }
+
+      &:nth-child(5) {
+        border-bottom-left-radius: $midRadius;
+      }
+
+      &:nth-child(6) {
+        border-bottom-right-radius: $midRadius;
+      }
+
+      &:nth-child(odd) {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 400;
+        padding: 15px 30px;
+        color: $grey;
+        background: #f8fafc;
+      }
+
+      &:nth-child(even) {
+        display: flex;
+        align-items: center;
+        height: auto;
+        font-size: 18px;
+        font-weight: 400;
+        padding: 15px 30px;
+      }
+    }
+  }
+
+  &__grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 287px);
+    column-gap: 15px;
+    row-gap: 15px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__card {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background: $lightGrey;
+    border: none;
+    box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.3);
+    width: 287px;
+    min-height: 675px;
+    transition: all ease-in-out 0.4s;
+    border-radius: $midRadius;
+
+    &:hover {
+      transform: translateY(2px);
+      box-shadow: 4px 4px 26px 0px rgba(0, 0, 0, 0.9);
+    }
+  }
+
+  &__grid-title {
+    padding: 20px 15px;
+  }
+
+  &__grid-imgok {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__grid-options {
+    display: flex;
+    align-items: center;
+    padding: 0 15px 15px;
+
+    & > h2 {
+      font-weight: 700;
+      font-size: 18px;
+    }
+  }
+
+  &__grid-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 35px;
+    background: $fobos;
+    color: $white;
+    border-radius: $midRadius;
+    margin: 0 15px 15px;
+    transition: 0.4s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__grid-info {
+    display: flex;
+    padding: 30px 15px 20px;
+
+    & > span {
+      font-weight: 400;
+      font-size: 15px;
+      color: $grey;
+    }
+  }
+
+  &__grid-imglock {
+    width: 30px;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .fobos-iptv {
+    &__title h2 {
+      text-align: center;
+      font-size: 18px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr 1fr;
+
+      &_cell {
+        &:nth-child(odd),
+        &:nth-child(even) {
+          font-size: 15px;
+          padding: 15px;
+        }
+      }
+    }
+
+    &__card {
+      width: 257px;
+      margin: 0 auto;
+    }
+
+    &__grid-title h2 {
+      font-size: 18px;
+    }
+
+    &__grid-options h2 {
+      font-size: 15px;
+    }
+
+    &__grid-options span {
+      font-size: 15px;
+    }
+
+    &__grid-btn {
+      font-size: 15px;
+    }
+  }
+}
+
+//Dark mode
+.wrapper {
+  &.dark {
+    .fobos-iptv {
+      background: $lightBlack;
+
+      & h2 {
+        color: $darkText;
+      }
+
+      &__grid {
+        color: $darkText;
+        border-color: $darkText;
+      }
+
+      &__grid_cell:nth-child(odd) {
+        background: $darkBlack;
+        border-color: $darkText;
+      }
+
+      &__grid_cell:nth-child(even) {
+        background: $lightBlack;
+        border-color: $darkText;
+      }
+
+      &__card {
+        background: $darkBlack;
+        & span {
+          color: $darkText;
+        }
+
+        &:hover {
+          transform: translateY(2px);
+          box-shadow: 4px 4px 26px 0px $grey;
+        }
+      }
+
+      &__grid-btn {
+        color: $darkBlack;
+      }
+    }
+  }
+}
